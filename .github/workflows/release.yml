@@ -1,0 +1,28 @@
+name: release
+
+on:
+  push:
+
+jobs:
+  x86_64-linux:
+    name: x86_64-linux
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: test
+        run: |
+          podman run \
+            --rm \
+            -v $PWD:/workspace \
+            -w /workspace \
+            alpine:edge \
+            /workspace/build-alpine.sh
+
+      - name: upload-artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: wasm3
+          path: build/wasm3
