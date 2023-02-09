@@ -199,7 +199,7 @@ elseif(BUILD_WASI MATCHES "uvwasi")
   FetchContent_Declare(
     uvwasi
     GIT_REPOSITORY https://github.com/nodejs/uvwasi.git
-    GIT_TAG 02a7e485a50c61af7d79d4a55a4a2d042e5c1c1c
+    GIT_TAG v0.0.15
   )
 
   FetchContent_GetProperties(uvwasi)
